@@ -21,7 +21,6 @@ export class HomePage extends PureComponent {
     await this.squareClicked(item);
   }
   squareClicked(index) {
-    console.log("hello");
     let player_turn = this.state.player_turn;
     let board = this.state.board;
     const i = this.count.indexOf(index);
@@ -52,11 +51,15 @@ export class HomePage extends PureComponent {
         board[p2] !== "" &&
         board[p3] !== ""
       ) {
-        alert(` winner! player ${player_turn} has won the game!`);
+        if (player_turn === "X") {
+          alert(` winner! You has won the game!`);
+        } else {
+          alert(`Better Luck Next time`);
+        }
+        this.props.history.push("/");
       }
     }
     player_turn = player_turn === "X" ? "O" : "X";
-    console.log(board);
     this.setState({
       player_turn: player_turn,
       board: board,

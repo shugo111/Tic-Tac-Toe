@@ -8,18 +8,13 @@ function Demo2(props) {
   let display = "";
   useEffect(() => {
     props.socket.on("game.begin", function (data) {
-      console.log(data);
       setsymbol(data.symbol);
       setmyTurn(data.symbol === "X" ? true : false);
       renderTurnMessage();
     });
-    props.socket.on("newGame", function (data) {
-      console.log(data);
-    });
-    console.log("symbol:", symbol, "turn:", myTurn);
+    props.socket.on("newGame", function (data) {});
   });
   function makeMove(index) {
-    console.log("enter1");
     if (!myTurn) {
       return;
     }
@@ -32,7 +27,6 @@ function Demo2(props) {
       symbol: symbol,
       position: index,
     });
-    console.log("move data emitted");
   }
   props.socket.on("move.made", function (data) {
     let boards = board;
@@ -54,6 +48,7 @@ function Demo2(props) {
     }
     props.socket.on("userResult", (data) => {
       alert(data);
+      props.history.push("/");
     });
   });
 
@@ -112,10 +107,7 @@ function Demo2(props) {
     //   display = "<div>{`Your turn`}</div>";
     // }
   }
-  function displaymessage() {
-    return display;
-  }
-  console.log("symbol:", symbol, "turn:", myTurn);
+
   return (
     <div>
       <h1>Tic tac toe {props.socket.id}</h1>
@@ -128,7 +120,6 @@ function Demo2(props) {
           );
         })}
       </div>
-      {console.log(displaymessage())}
     </div>
   );
 }

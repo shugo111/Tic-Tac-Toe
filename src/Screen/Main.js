@@ -10,10 +10,8 @@ function Main(props) {
     }
   });
   function newgame() {
-    console.log("entered");
     props.socket.emit("newGame");
     props.socket.on("roomcode", (data) => {
-      console.log("code:", data);
       setRoomCode(data);
     });
   }
@@ -26,12 +24,10 @@ function Main(props) {
   props.socket.on("enterroomcode", (data) => {
     if (data === "entered room") {
       props.socket.emit("begin", true);
-      console.log(data);
       props.history.push("/play");
     }
   });
 
-  console.log(roomId);
   return (
     <div class="row valign-wrapper" style={{ width: "100%", height: "100vh" }}>
       <div class="col s12 m6 offset-m3 ">
