@@ -68,7 +68,7 @@ export class HomePage extends PureComponent {
   render() {
     return (
       <div>
-        <h1>Tic tac toe</h1>
+        <h1 style={{ margin: 0 }}>Tic tac toe</h1>
         <div className="board">
           {this.state.board.map((square, index) => {
             return (

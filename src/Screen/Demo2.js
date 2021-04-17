@@ -110,7 +110,7 @@ function Demo2(props) {
 
   return (
     <div>
-      <h1>Tic tac toe {props.socket.id}</h1>
+      <h1 style={{ margin: 0 }}>Tic tac toe {props.socket.id}</h1>
       <div className="board">
         {board.map((square, index) => {
           return (
