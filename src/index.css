@@ -11,3 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.board {
+width: 35rem;
+height: 35rem;
+margin: auto;
+/* border: 1px solid black; */
+display: flex;
+flex-wrap: wrap;
+
+}
+
+.square {
+width: 10rem; height: 10rem;
+border: 1px solid black;
+margin:2%;
+border-radius: 1rem;
+background-color:#778DA9 ;
+}
+
+.square:hover{
+  background: #758394;
+  cursor: pointer;
+}
+
