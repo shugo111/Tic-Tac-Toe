@@ -5,7 +5,6 @@ function Demo2(props) {
   const [board, setboard] = useState(["", "", "", "", "", "", "", "", ""]);
   const [myTurn, setmyTurn] = useState("");
   const [symbol, setsymbol] = useState();
-  let display = "";
   useEffect(() => {
     props.socket.on("game.begin", function (data) {
       setsymbol(data.symbol);
